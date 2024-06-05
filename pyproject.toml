@@ -1,0 +1,33 @@
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 120
+max-complexity = 4
+exclude = ["migrations", "venv"]
+
+[tool.pytest.ini_options]
+python_files = ["test_*.py", "tests.py"]
+addopts = """
+--color=yes --showlocals --quiet --reuse-db --numprocesses=auto --ds=dbb.settings
+--cov --cov-report=html --no-cov-on-fail --maxfail=1 --cov-fail-under=80 --cov-branch
+--pdbcls=IPython.terminal.debugger:TerminalPdb
+"""
+
+[tool.coverage.run]
+branch = true
+source = ["."]
+omit = [
+  "*/tests/*",
+  "*/migrations/*",
+  "venv/*",
+  "static/*",
+  "manage.py",
+  "requirements.txt",
+]
+
+[tool.ipdb]
+context=5
