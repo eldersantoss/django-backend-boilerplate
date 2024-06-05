@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Third-party apps
     # "rest_framework",
+    # Local apps
+    "sample",
 ]
 
 MIDDLEWARE = [
@@ -131,9 +133,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Email
 
-EMAIL_BACKEND = config(
-    "EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend"
-)
+EMAIL_BACKEND = config("EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend")
 EMAIL_HOST = config("EMAIL_HOST", default="smtp.gmail.com")
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
